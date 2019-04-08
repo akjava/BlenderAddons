@@ -13,6 +13,7 @@ most of addon for VRM
 ### Simple Bone Animation
 Just Simply Insert XYZ specific angle Rotated Key Frame
 for Testing weight or physics
+exampl https://www.youtube.com/watch?v=obEEsPdbwXQ
 
 Japanese
 --
