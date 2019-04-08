@@ -9,6 +9,9 @@ Addons
 No plan to support Blender 2.79
 
 most of addon for VRM
+###Simple Bone Animation
+Just Simply Insert XYZ specific angle Rotated Key Frame
+for Testing weight or physics
 
 Japanese
 --
