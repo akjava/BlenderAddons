@@ -70,7 +70,7 @@ class SIMPLEBONEANIMATION_PT_RootPanel(bpy.types.Panel):
         col.prop(scene.simple_bone_animation,"armature")
         armature=scene.simple_bone_animation.armature
         if armature == "None":
-            col.label("No Armature(Bone)") #hide from pole
+            col.label(text="No Armature(Bone)") #hide from pole
         else:
             mode=bpy.context.object is not None and bpy.context.object.mode
             if mode !="POSE":
