@@ -5,7 +5,7 @@ from bpy.props import *
 bl_info = {
     "name": "Simple Bone Animation",
     "author": "Aki Miyazaki",
-    "version": (0, 1),
+    "version": (0, 1,1),
     "blender": (2, 80, 0),
     "location": "",
     "description": "Make Simple Bone Animation",
@@ -72,7 +72,7 @@ class SIMPLEBONEANIMATION_PT_RootPanel(bpy.types.Panel):
         if armature == "None":
             col.label("No Armature(Bone)") #hide from pole
         else:
-            mode=bpy.context.object.mode
+            mode=bpy.context.object is not None and bpy.context.object.mode
             if mode !="POSE":
                 col.label(text="Need Change Pose Mode")      
             else:      
