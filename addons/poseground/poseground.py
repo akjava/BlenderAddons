@@ -38,7 +38,7 @@ def bone_items(self, context):
     return obs
 
 class POSEGROUNDPropertyGroup(bpy.types.PropertyGroup):
-    groundHeight : bpy.props.FloatProperty(name="ground",default=0.01)
+    groundHeight : bpy.props.FloatProperty(name="ground",default=0.03)
     armature : bpy.props.EnumProperty(name="armature",items=armature_items)
     targetBone : bpy.props.EnumProperty(name="targetBone",items=bone_items)
     
