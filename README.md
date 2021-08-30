@@ -15,7 +15,9 @@ Just Simply Insert XYZ specific angle Rotated Key Frame
 for Testing weight or physics.
 
 you can make these kind motion  https://www.youtube.com/watch?v=obEEsPdbwXQ
-####History
+
+#### History
+
 0.1.1 - fixed error happen when no selection
 ### Pose Ground
 On Pose Mode find min-y bone & move target bone to specific height(default 3cm)
