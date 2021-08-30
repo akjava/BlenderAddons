@@ -6,7 +6,7 @@ MIT ,but I'm thinking dual license with GPL
 
 Addons
 --
-No plan to support Blender 2.79
+No plan to support Blender 2.79,now upgrading to recent version.
 
 most of addon for VRM
 
