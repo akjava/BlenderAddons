@@ -1,0 +1,18 @@
+#imports bvhs
+import bpy
+import os
+
+def import_bvh_files(directory):
+    for filename in os.listdir(directory):
+        if filename.endswith(".bvh"):
+            filepath = os.path.join(directory, filename)
+            #bpy.ops.import_scene.bvh(filepath=filepath)
+            bpy.ops.import_anim.bvh(filepath=filepath)
+            
+
+# Replace 'your_directory_path' with the actual path to your directory
+import_bvh_files('e:\\bvhs\\dance005')
+bpy.context.scene.render.fps = 20
+bpy.context.scene.frame_end = 400
+for action in bpy.data.actions:
+    action.use_fake_user = True
