@@ -1,0 +1,34 @@
+#blender4
+#match metarig bone to makehuman gameengine bone
+
+bone_replacement_name_dict = {
+    'spine':'hips',
+     'spine.001':'spine',
+    'spine.002':'chest',
+    'spine.003':'chest1' ,
+     'spine.004':'neck',
+    'spine.005':'head',
+}
+
+
+base_name = "makehuman-gameengine"
+metarig = "metarig"
+
+bone_replacement_bone_dict = {}
+obj = bpy.data.objects[base_name]
+for bone in obj.pose.bones:
+    bone_replacement_bone_dict[bone.name] = bone
+
+obj = bpy.data.objects[metarig]
+armature = obj
+bpy.context.view_layer.objects.active = obj
+bpy.ops.object.mode_set(mode='EDIT')
+
+
+for bone in armature.data.edit_bones:
+    name = bone.name
+    if bone.name in bone_replacement_name_dict:
+        name = bone_replacement_name_dict[name]
+    if name in bone_replacement_bone_dict:
+        bone.head = bone_replacement_bone_dict[name].head
+        bone.tail = bone_replacement_bone_dict[name].tail
