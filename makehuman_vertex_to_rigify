@@ -1,0 +1,59 @@
+import bpy
+
+prefix = "DEF-"  # ここに接尾辞を設定してください
+
+bone_replacement_name_dict = {
+    #'hips':'spine',
+     'spine':'spine.001',
+    'chest':'spine.002',
+    'chest1':'spine.003' ,
+     'neck':'spine.004',
+    
+}
+
+# spine is always exists ,
+bone_replacement_name_dict2_hips={
+    'hips':'spine',
+}
+
+
+
+# 全てのオブジェクトをループ
+def add_prefix_to_vgroup(bone_replacement_name_dict):
+    for obj in bpy.data.objects:
+        # オブジェクトがメッシュであるかチェック
+        if obj.type == 'MESH':
+            # 全ての頂点グループをループ
+            for vgroup in obj.vertex_groups:
+                # 接尾辞が既に存在しない場合にのみ追加
+                if not vgroup.name.startswith(prefix):
+                    group_name = vgroup.name
+                    if group_name in bone_replacement_name_dict:
+                        group_name = bone_replacement_name_dict[group_name]
+                    vgroup.name = prefix + group_name
+                    
+#add_prefix_to_vgroup(bone_replacement_name_dict)
+#add_prefix_to_vgroup(bone_replacement_name_dict2_hips)
+
+def replace_bones(armature_new):
+    """
+    全てのメッシュのアーマチュアのボーンを新しいものに入れ替える関数
+
+    Parameters:
+    armature_old (str): 入れ替え前のアーマチュアの名前
+    armature_new (str): 入れ替え後のアーマチュアの名前
+    """
+    # 全てのオブジェクトをループ
+    for obj in bpy.data.objects:
+        # オブジェクトがメッシュであるかチェック
+        if obj.type == 'MESH':
+            # 全ての修飾子をループ
+            for modifier in obj.modifiers:
+                # 修飾子がアーマチュアであるかチェック
+                if modifier.type == 'ARMATURE':
+                    # 修飾子のアーマチュアが入れ替え前のものであるかチェック
+                        # アーマチュアを新しいものに入れ替え
+                        modifier.object = bpy.data.objects[armature_new]
+            obj.parent = bpy.data.objects[armature_new]
+                        
+replace_bones("godot_rig")
