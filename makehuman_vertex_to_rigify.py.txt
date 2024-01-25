@@ -7,7 +7,8 @@ bone_replacement_name_dict = {
      'spine':'spine.001',
     'chest':'spine.002',
     'chest1':'spine.003' ,
-     'neck':'spine.004',
+     'neck':'spine.004',#godot_rig not need
+    'head':'spine.006',#
     
 }
 
